@@ -64,9 +64,9 @@ Dataset yang digunakan adalah **Garbage Classification (12 classes)** dari Kaggl
 
 | Subset       | Jumlah Data | Persentase |
 |:-------------|:-----------:|:----------:|
-| Training     |   ~10.605   |    70%     |
-| Validation   |   ~2.272    |    15%     |
-| Testing      |   ~2.273    |    15%     |
+| Training     |   10.605   |    70%     |
+| Validation   |   2.272    |    15%     |
+| Testing      |   2.273    |    15%     |
 | **Total**    | **15.150**  |  **100%**  |
 
 ---
