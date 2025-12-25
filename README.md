@@ -218,81 +218,13 @@ Dense (12 units) + Softmax
 
 ---
 
-### Analisis Mendalam
+### Tabel Analisis Mendalam Perbandingan Model
 
-#### 1. CNN Non-Pretrained (Baseline)
-
-**Hasil Analisis:**
-- Model CNN sederhana yang dibangun from scratch menunjukkan performa yang cukup baik sebagai baseline dengan akurasi **76,32%**
-- Meskipun dilatih dari nol, model mampu mempelajari pola-pola dasar klasifikasi sampah dengan baik
-- Training time relatif cepat (±20 menit) berkat optimasi image size (160x160)
-- Model ini berfungsi sebagai baseline yang solid untuk membandingkan efektivitas transfer learning
-
-**Kelebihan:**
-- Arsitektur simple dan mudah dipahami
-- Tidak memerlukan pretrained weights
-- Training time cukup cepat untuk model from scratch
-
-**Kekurangan:**
-- Akurasi lebih rendah dibanding model pretrained terbaik (MobileNetV2)
-- Membutuhkan data training yang cukup banyak untuk hasil optimal
-- Generalisasi lebih terbatas dibanding model pretrained
-
-**Insight:**
-Model CNN baseline mencapai akurasi 76.32%, menunjukkan bahwa arsitektur sederhana sudah cukup untuk menangkap fitur-fitur dasar sampah. Namun, masih ada ruang improvement signifikan dengan menggunakan transfer learning.
-
----
-
-#### 2. ResNet50 - Analisis Kegagalan 
-
-**Hasil Analisis:**
-- Model ResNet50 menunjukkan **performa yang sangat buruk** dengan akurasi hanya **39.31%**
-- Precision sangat rendah (22.24%) menunjukkan banyak false positive
-- Model mengalami **underfitting** atau **kesulitan konvergensi**
-
-**Kemungkinan Penyebab Kegagalan:**
-
-1. **Input Size Terlalu Kecil untuk ResNet50**
-   - ResNet50 dirancang optimal untuk input 224x224
-   - Input 160x160 menyebabkan loss of spatial information yang signifikan
-   - Layer dalam ResNet50 membutuhkan feature map yang lebih besar
-
-2. **Learning Rate Tidak Optimal**
-   - Learning rate 0.0001 mungkin terlalu kecil
-   - Model tidak sempat konvergen dalam 15 epochs
-
-3. **Frozen Layers Terlalu Banyak**
-   - Semua layer base dibekukan
-   - Fitur dari ImageNet mungkin tidak cocok untuk klasifikasi sampah di resolusi rendah
-
-4. **Early Stopping Triggered Terlalu Cepat**
-   - Model belum sempat belajar dengan baik
-   - Validation loss mungkin tidak stabil di awal training
-
-**Kesimpulan:**
-ResNet50 gagal memberikan performa yang baik dalam konfigurasi saat ini. Model terlalu kompleks untuk image size 160x160 dan membutuhkan penyesuaian arsitektur atau hyperparameter yang lebih baik.
-
----
-
-#### 3. MobileNetV2 (Model Terbaik) 
-
-**Hasil Analisis:**
-- Model MobileNetV2 memberikan **performa terbaik** dengan akurasi **90.72%**
-- Precision (90.88%) dan Recall (90.72%) sangat seimbang, menunjukkan klasifikasi yang konsisten
-- F1-Score 90.68% mengindikasikan performa yang excellent dan stabil
-- Training cukup memerlukan waktu (±30 menit) dengan hasil terbaik - **perfect combination!**
-
-**Kelebihan:**
-- **Akurasi tertinggi** (90.72%) di antara ketiga model
-- **Training** (±30 menit) - cukup efisien
-- **Sangat cocok dengan image size 160x160** - MobileNetV2 didesain untuk efisiensi
-- **Balance sempurna** antara akurasi, kecepatan, dan ukuran
-
-**Mengapa MobileNetV2 Unggul:**
-1. **Arsitektur Efficient** - Inverted residual blocks optimal untuk image size menengah
-2. **Pretrained Weights Adaptif** - Fitur dari ImageNet cocok untuk klasifikasi sampah
-3. **Lightweight Design** - Tidak overly complex seperti ResNet50
-4. **Optimal untuk 160x160** - Desain mobile-first cocok dengan resolusi ini
+| Nama Model         | Akurasi | Hasil Analisis |
+|--------------------|---------|----------------|
+| CNN Non-Pretrained | 76.32%  | Model baseline yang dibangun dari nol mampu mempelajari pola dasar klasifikasi sampah dengan cukup baik. Performa stabil dan training relatif cepat, namun akurasinya masih kalah dibanding model pretrained karena keterbatasan generalisasi. |
+| ResNet50           | 39.31%  | Model menunjukkan performa sangat rendah dan mengalami underfitting. Arsitektur terlalu kompleks untuk input 160×160, seluruh layer dibekukan, serta learning rate yang kurang optimal menyebabkan model gagal beradaptasi dengan dataset. |
+| MobileNetV2        | 90.72%  | Model terbaik dengan akurasi tertinggi dan performa paling seimbang. Arsitektur ringan dan efisien sangat cocok untuk image size 160×160, menghasilkan klasifikasi yang akurat, stabil, dan optimal untuk deployment aplikasi. |
 
 ---
 
@@ -390,3 +322,4 @@ streamlit run app.py
 - **GitHub**: [@ayulexa](https://github.com/ayulexa)
 
 ---
+
