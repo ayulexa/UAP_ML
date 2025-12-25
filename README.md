@@ -216,7 +216,7 @@ Dense (12 units) + Softmax
 
 ---
 
-### Tabel Analisis Mendalam Perbandingan Model
+### Tabel Analisis Perbandingan Model
 
 | Nama Model         | Akurasi | Hasil Analisis |
 |--------------------|---------|----------------|
