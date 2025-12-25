@@ -165,7 +165,6 @@ Dense (12 units) + Softmax
 
 #### Karakteristik:
 - **Pretrained Weights**: ImageNet (1000 classes)
-- **Layer Freezing**: Semua layer ResNet50 dibekukan (trainable=False)
 - **Training Strategy**: Hanya melatih layer classifier baru
 - **Training Time**: ±60 menit
 - **Optimizer**: Adam (learning_rate=0.0001)
@@ -195,7 +194,6 @@ Dense (12 units) + Softmax
 
 #### Karakteristik:
 - **Pretrained Weights**: ImageNet (1000 classes)
-- **Layer Freezing**: Semua layer MobileNetV2 dibekukan (trainable=False)
 - **Training Time**: ±30 menit
 - **Optimizer**: Adam (learning_rate=0.0001)
 - **Keunggulan**:
