@@ -12,7 +12,7 @@ Repository ini dibuat untuk memenuhi **Tugas Akhir Praktikum (UAP)** Mata Kuliah
 - [Model yang Digunakan](#-model-yang-digunakan)
 - [Hasil Evaluasi dan Analisis](#-hasil-evaluasi-dan-analisis)
 - [Cara Menjalankan Program](#-cara-menjalankan-program)
-- [Kontributor](#-kontributor)
+- [Biodata](#-biodata)
 
 ---
 
