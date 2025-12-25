@@ -241,21 +241,6 @@ Dense (12 units) + Softmax
 **3. Model Gagal:**
 - **ResNet50** (39.31%) - Performa buruk, tidak cocok dengan konfigurasi saat ini
 
-#### Insight Penting:
-
-**Transfer Learning Sangat Efektif (dengan model yang tepat):**
-- MobileNetV2: +16% akurasi vs CNN baseline
-- Membuktikan pentingnya pemilihan model yang sesuai dengan data dan konfigurasi
-
-**Tidak Semua Model Pretrained Cocok:**
-- ResNet50 gagal karena terlalu kompleks untuk image size 160x160
-- Model complexity harus match dengan input resolution
-
-**MobileNetV2 = Perfect Match:**
-- Didesain untuk efficiency → cocok dengan 160x160
-- Lightweight → training cepat
-- Effective → akurasi tinggi
-- **Best choice untuk proyek ini!**
 
 ---
 
