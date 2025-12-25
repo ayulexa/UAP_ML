@@ -233,7 +233,7 @@ Dense (12 units) + Softmax
 #### Perbandingan Kinerja:
 
 **1. Model Terbaik:**
-- **MobileNetV2** (90.72%) - Champion! Unggul dalam segala aspek
+- **MobileNetV2** (90.72%) - Unggul dalam segala aspek
 
 **2. Model Baseline:**
 - **CNN Non-Pretrained** (76.32%) - Solid baseline, cukup baik untuk model sederhana
