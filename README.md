@@ -79,7 +79,7 @@ Untuk mengoptimalkan proses training, digunakan konfigurasi berikut:
 - **Image Size**: 160 x 160 pixels (optimasi dari 224x224 default)
 - **Batch Size**: 64
 - **Epochs**: 15 (dengan Early Stopping patience=3)
-- **Training Time**: ~30-60 menit untuk masing masing model
+- **Training Time**: ±30-60 menit untuk masing masing model
 
 ### Langkah-langkah Preprocessing:
 
@@ -139,8 +139,7 @@ Dense (12 units) + Softmax
 ```
 
 #### Karakteristik:
-- **Total Parameters**: ~2-3 juta parameter
-- **Training Time**: ~12 menit
+- **Training Time**: ±20 menit
 - **Optimizer**: Adam (learning_rate=0.001)
 - **Loss Function**: Categorical Crossentropy
 - **Callbacks**: EarlyStopping (patience=3)
@@ -168,8 +167,7 @@ Dense (12 units) + Softmax
 - **Pretrained Weights**: ImageNet (1000 classes)
 - **Layer Freezing**: Semua layer ResNet50 dibekukan (trainable=False)
 - **Training Strategy**: Hanya melatih layer classifier baru
-- **Total Parameters**: ~23 juta (hanya ~150k yang trainable)
-- **Training Time**: ~10 menit
+- **Training Time**: ±60 menit
 - **Optimizer**: Adam (learning_rate=0.0001)
 - **Keunggulan**: 
   - Transfer knowledge dari ImageNet
@@ -198,9 +196,7 @@ Dense (12 units) + Softmax
 #### Karakteristik:
 - **Pretrained Weights**: ImageNet (1000 classes)
 - **Layer Freezing**: Semua layer MobileNetV2 dibekukan (trainable=False)
-- **Arsitektur**: Inverted Residual dengan Linear Bottlenecks
-- **Total Parameters**: ~2.2 juta (hanya ~150k yang trainable)
-- **Training Time**: ~8 menit
+- **Training Time**: ±30 menit
 - **Optimizer**: Adam (learning_rate=0.0001)
 - **Keunggulan**:
   - Model lightweight (ukuran kecil)
@@ -227,14 +223,13 @@ Dense (12 units) + Softmax
 #### 1. CNN Non-Pretrained (Baseline)
 
 **Hasil Analisis:**
-- Model CNN sederhana yang dibangun from scratch menunjukkan performa yang cukup baik sebagai baseline dengan akurasi **74.74%**
+- Model CNN sederhana yang dibangun from scratch menunjukkan performa yang cukup baik sebagai baseline dengan akurasi **76,32%**
 - Meskipun dilatih dari nol, model mampu mempelajari pola-pola dasar klasifikasi sampah dengan baik
-- Training time relatif cepat (~12 menit) berkat optimasi image size (160x160)
+- Training time relatif cepat (±20 menit) berkat optimasi image size (160x160)
 - Model ini berfungsi sebagai baseline yang solid untuk membandingkan efektivitas transfer learning
 
 **Kelebihan:**
 - Arsitektur simple dan mudah dipahami
-- Ukuran model sangat kecil (~15 MB)
 - Tidak memerlukan pretrained weights
 - Training time cukup cepat untuk model from scratch
 
@@ -282,16 +277,14 @@ ResNet50 gagal memberikan performa yang baik dalam konfigurasi saat ini. Model t
 #### 3. MobileNetV2 (Model Terbaik) 
 
 **Hasil Analisis:**
-- Model MobileNetV2 memberikan **performa terbaik** dengan akurasi **90.98%**
-- Precision (91.04%) dan Recall (90.98%) sangat seimbang, menunjukkan klasifikasi yang konsisten
-- F1-Score 90.95% mengindikasikan performa yang excellent dan stabil
-- Training paling cepat (~8 menit) dengan hasil terbaik - **perfect combination!**
+- Model MobileNetV2 memberikan **performa terbaik** dengan akurasi **90.72%**
+- Precision (90.88%) dan Recall (90.72%) sangat seimbang, menunjukkan klasifikasi yang konsisten
+- F1-Score 90.68% mengindikasikan performa yang excellent dan stabil
+- Training cukup memerlukan waktu (±30 menit) dengan hasil terbaik - **perfect combination!**
 
 **Kelebihan:**
-- **Akurasi tertinggi** (90.98%) di antara ketiga model
-- **Training tercepat** (~8 menit) - sangat efisien
-- **Ukuran model paling kecil** (~14 MB) - ideal untuk deployment
-- **Inference time sangat cepat** - cocok untuk aplikasi real-time
+- **Akurasi tertinggi** (90.72%) di antara ketiga model
+- **Training** (±30 menit) - cukup efisien
 - **Sangat cocok dengan image size 160x160** - MobileNetV2 didesain untuk efisiensi
 - **Balance sempurna** antara akurasi, kecepatan, dan ukuran
 
@@ -319,7 +312,7 @@ ResNet50 gagal memberikan performa yang baik dalam konfigurasi saat ini. Model t
 #### Insight Penting:
 
 **Transfer Learning Sangat Efektif (dengan model yang tepat):**
-- MobileNetV2: +16.24% akurasi vs CNN baseline
+- MobileNetV2: +16% akurasi vs CNN baseline
 - Membuktikan pentingnya pemilihan model yang sesuai dengan data dan konfigurasi
 
 **Tidak Semua Model Pretrained Cocok:**
